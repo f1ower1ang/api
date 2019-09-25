@@ -1,6 +1,5 @@
 const express = require('express')
 const axios = require('axios')
-const musicAPI = require('@suen/music-api')
 const apiRoutes = express.Router()
 
 const common = {
@@ -50,14 +49,6 @@ apiRoutes.get('/discList', function (req, res) {
     res.json(response.data)
   }).catch((e) => {
     console.error(e)
-  })
-})
-
-apiRoutes.get('/url', (req, res) => {
-  musicAPI.qq.getSongUrl(req.query.id).then(response => {
-    res.json(response.data)
-  }).catch(e => {
-    console.log(e)
   })
 })
 
