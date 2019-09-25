@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www",
+    "prd": "cross-env NODE_ENV=production pm2 start pm2.conf.json"
+  },
+  "dependencies": {
+    "@suen/music-api": "^1.1.11",
+    "axios": "^0.19.0",
+    "cookie-parser": "~1.4.4",
+    "cross-env": "^5.2.0",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "js-base64": "^2.5.1",
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.1"
+  }
+}
