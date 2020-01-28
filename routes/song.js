@@ -182,9 +182,9 @@ apiRoutes.get('/qqUrl', function (req, res) {
   axios.get(url, {
     params: data
   }).then(response => {
-    // res.json(response.data)
-    const data = response.data['req_0'].data
-    res.redirect(`${data['sip'][0]}${data.midurlinfo[0].purl}`)
+    res.json(response.data)
+    // const data = response.data['req_0'].data
+    // res.redirect(`${data['sip'][0]}${data.midurlinfo[0].purl}`)
   }).catch(e => {
     console.log(e)
   })
