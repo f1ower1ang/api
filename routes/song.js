@@ -186,7 +186,7 @@ apiRoutes.get('/qqUrl', function (req, res) {
     const data = response.data['req_0'].data
     res.redirect(`${data['sip'][0]}${data.midurlinfo[0].purl}`)
   }).catch(e => {
-    console.log(e)
+    console.error(e)
   })
 })
 
