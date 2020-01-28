@@ -74,7 +74,7 @@ apiRoutes.get('/rankSong', function (req, res) {
     uin: 0,
     '_': Date.now()
   })
-  
+
   axios.get(url, {
     params: data
   }).then(response => {
@@ -182,11 +182,26 @@ apiRoutes.get('/qqUrl', function (req, res) {
   axios.get(url, {
     params: data
   }).then(response => {
-    res.json(response.data)
-    // const data = response.data['req_0'].data
-    // res.redirect(`${data['sip'][0]}${data.midurlinfo[0].purl}`)
+    // res.json(response.data)
+    const data = response.data['req_0'].data
+    res.redirect(`${data['sip'][0]}${data.midurlinfo[0].purl}`)
   }).catch(e => {
     console.log(e)
+  })
+})
+
+// 重定向音乐URL
+apiRoutes.get('/qqRedirect', function (req, res) {
+  const url = 'http://api.qq.jsososo.com/song/url'
+  axios.get(url, {
+    params: {
+      id: req.query.id
+    },
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'
+    }
+  }).then(response => {
+    res.redirect(response.data.data)
   })
 })
 
